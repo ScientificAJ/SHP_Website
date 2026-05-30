@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Gallery – Student HackPad 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">Student HackPad 2026</div>
+    <ul>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="updates.html">Updates</a></li>
+      <li><a href="discussions.html">Discussions</a></li>
+    </ul>
+    <div id="auth-container" class="auth-links"></div>
+  </nav>
+
+  <section>
+    <h2>Project Gallery</h2>
+    <p style="text-align:center;">Explore some of the outstanding submissions from Student HackPad 2026. Support your favourites by liking and sharing them.</p>
+    <div id="project-gallery" class="gallery"></div>
+  </section>
+
+  <footer>
+    <ul>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="updates.html">Updates</a></li>
+      <li><a href="discussions.html">Discussions</a></li>
+    </ul>
+    <p>© 2026 Student HackPad – All rights reserved.</p>
+  </footer>
+
+  <script src="data/projects.js"></script>
+  <script src="js/auth.js"></script>
+  <!-- Require user to be logged in before accessing project data -->
+  <script>
+    requireLogin();
+  </script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Updates – Student HackPad 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">Student HackPad 2026</div>
+    <ul>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="updates.html">Updates</a></li>
+      <li><a href="discussions.html">Discussions</a></li>
+    </ul>
+    <div id="auth-container" class="auth-links"></div>
+  </nav>
+
+  <section>
+    <h2>Updates & Announcements</h2>
+    <p style="text-align:center;">Stay up to date with announcements, judging news and upcoming events.</p>
+    <div id="updates-container" class="cards"></div>
+  </section>
+
+  <footer>
+    <ul>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="updates.html">Updates</a></li>
+      <li><a href="discussions.html">Discussions</a></li>
+    </ul>
+    <p>© 2026 Student HackPad – All rights reserved.</p>
+  </footer>
+
+  <script src="data/updates.js"></script>
+  <script src="js/auth.js"></script>
+  <!-- Require user to be logged in before accessing updates -->
+  <script>
+    requireLogin();
+  </script>
+  <script src="js/updates.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

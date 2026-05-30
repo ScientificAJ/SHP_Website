@@ -1,0 +1,500 @@
+/* Student HackPad 2026 – Premium Edition Styles */
+/* Import premium fonts for a refined look */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;700&display=swap');
+
+/* Colour variables */
+:root {
+  /* Primary palette */
+  /* Soft sunrise to sky gradient */
+  --gradient-start: #f8d9e5; /* blush pink */
+  --gradient-end: #d1effa;   /* pale aqua */
+  /* Accent colours for buttons and highlights */
+  --accent: #ff5e8d;         /* coral pink */
+  --accent-alt: #5ec9f5;     /* aqua blue */
+
+  /* Text colours */
+  --text-dark: #0a0a23;
+  --text-light: #ffffff;
+
+  /* Surfaces */
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(255, 255, 255, 0.3);
+  --nav-bg: rgba(255, 255, 255, 0.7);
+  --footer-bg: rgba(255, 255, 255, 0.7);
+
+  /* Shadows */
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Use Inter for body text; headings will use Montserrat */
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+/* Apply Montserrat to all headings for a refined look */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-alt);
+}
+
+/* Navigation bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  font-weight: 600;
+  color: var(--text-dark);
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+  width: 100%;
+}
+
+nav .auth-links a {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+nav .auth-links .login {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+nav .auth-links .login:hover {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+nav .auth-links .signup {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+nav .auth-links .signup:hover {
+  background: var(--accent-alt);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 1rem 4rem;
+  color: var(--text-dark);
+}
+
+/* Animated gradient background for hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, var(--gradient-start), var(--gradient-end));
+  animation: gradientShift 15s infinite alternate;
+  z-index: -2;
+}
+
+/* Overlay for subtle pattern */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.5), rgba(255,255,255,0) 60%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.3), rgba(255,255,255,0) 60%);
+  z-index: -1;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+  animation: fadeInUp 1.4s ease forwards;
+  opacity: 0;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(45deg, var(--accent), var(--accent-alt));
+  color: var(--text-light);
+  font-weight: 600;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fadeInUp 1.8s ease forwards;
+  opacity: 0;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Sections */
+section {
+  padding: 5rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+  text-align: center;
+  font-weight: 700;
+}
+
+section .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+section .card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+section .card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+section .card p {
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+/* Schedule and prizes tables */
+table.schedule, table.prizes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  color: var(--text-dark);
+  box-shadow: var(--shadow);
+}
+
+table.schedule th, table.prizes th,
+table.schedule td, table.prizes td {
+  padding: 0.8rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+table.schedule th, table.prizes th {
+  background: linear-gradient(45deg, var(--accent), var(--accent-alt));
+  color: var(--text-light);
+}
+
+table.schedule tr:nth-child(even), table.prizes tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.7);
+}
+
+table.schedule tr:nth-child(odd), table.prizes tr:nth-child(odd) {
+  background-color: rgba(255,255,255,0.5);
+}
+
+/* Footer */
+footer {
+  background: var(--footer-bg);
+  backdrop-filter: blur(10px);
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--text-dark);
+  margin-top: 4rem;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+footer ul li a {
+  color: var(--text-dark);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+footer ul li a:hover {
+  color: var(--accent);
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+/* Forms */
+form {
+  max-width: 450px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+  font-size: 1.8rem;
+}
+
+form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+form input[type="text"], form input[type="password"], form input[type="email"] {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background-color: rgba(255,255,255,0.6);
+  color: var(--text-dark);
+  transition: border-color 0.2s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+form .btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(45deg, var(--accent), var(--accent-alt));
+  color: var(--text-light);
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+form .btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+form .link {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+form .link:hover {
+  color: var(--accent-alt);
+}
+
+/* Cards layout for gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.gallery .project-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery .project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.project-card h4 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.project-card .badge {
+  display: inline-block;
+  background-color: var(--accent-alt);
+  color: var(--text-light);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-right: 0.3rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  nav .auth-links {
+    margin-top: 0.5rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+  }
+  section {
+    padding: 4rem 1rem;
+  }
+}
+
+/* Scroll reveal effect: elements start slightly below and fade in when visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
