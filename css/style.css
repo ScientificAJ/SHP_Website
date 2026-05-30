@@ -423,6 +423,28 @@ form .link:hover {
   box-shadow: 0 10px 24px rgba(0,0,0,0.15);
 }
 
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.sponsor-card img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sponsor-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
 .project-card h4 {
   color: var(--accent);
   margin-bottom: 0.5rem;
